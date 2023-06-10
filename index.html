@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icons/icon.png" type="image/x-icon">
+    <title>Cifrado de texto</title>
+</head>
+<body>
+    <header class="header">
+        <div id="header">
+            <h1>BIENVENIDO</h1>
+            <h2>Comienza a cifrar texto ahora</h2>
+        </div>
+        <nav id="navbar">
+            <a rel="noopener" href="#Cipher" class="nav-link">Cifrado</a>
+            <a rel="noopener" href="#Decipher" class="nav-link">Decifrado</a>
+        </nav>
+        <nav id="mobile-navbar">
+            <a rel="noopener" class="nav-menu">
+                <img src="./icons/manu-cerrado.png" id="nav-icon" class="nav-icon" alt="">
+            </a>
+        </nav>
+        <div class="fondo"></div>
+        <nav id="menu">
+            <div class="expand"></div>
+            <hr class="divider-nav top-hr">
+            <a rel="noopener" href="#Cipher" class="nav-link responsive1 resp-link">Cifrado</a>
+            <hr class="divider-nav">
+            <a rel="noopener" href="#Decipher" class="nav-link responsive2 resp-link">Decifrado</a>
+            <hr class="divider-nav">
+        </nav>
+    </header>
+    <div class="bottom-header"></div>
+    <main>
+        <div id="container">
+            <hr>
+            <span id="menEn" class="mensaje"></span>
+            <form id="Cipher">
+                <label for="cipher" class="selection">Seleccione una forma de cifrado</label>
+                <select class="select" id="cipher" name="cipher">
+                    <option value="">Selecciona el metodo de cifrado</option>
+                    <option value="1">cifrado cesar</option>
+                    <option value="2">base64</option>
+                </select>
+                <label for="textoen">Mensaje a encriptar</label>
+                <textarea class="input-text" id="textoen" type="text" rows="6" cols="30" name="mensaje"></textarea>
+                <button id="botonen" type="button">encriptar</button>
+                <textarea class="output-text" id="encrypted" rows="6" cols="30" placeholder="El mensaje encriptado se mostrara aqui"></textarea>
+            </form>
+            <hr>
+            <span id="menDe" class="mensaje"></span>
+            <form id="Decipher">
+                <label for="decipher" class="selection">Seleccione una forma de decifrado</label>
+                <select class="select" id="decipher" name="decipher">
+                    <option value="">Selecciona el metodo de decifrado</option>
+                    <option value="1">cifrado cesar</option>
+                    <option value="2">base64</option>
+                </select>
+                <label for="textodes">Mensaje a desencriptar</label>
+                <textarea class="input-text" id="textodes" type="text" rows="6" cols="30" name="mensaje"></textarea>
+                <button id="botondes" type="button">desencriptar</button>
+                <textarea class="output-text" id="decrypted" rows="6" cols="30" placeholder="El mensaje desencriptado se mostrara aqui"></textarea>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Esto es un proyecto personal desarrollado a partir de un momento de ocio en el que decidi hacer una funcion de JavaScript para cifrar texto con el cifrado cesar, algo que termino evolucionando en esta aplicacion web</p>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>
