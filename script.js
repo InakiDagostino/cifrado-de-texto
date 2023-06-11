@@ -1,11 +1,20 @@
 document.getElementById("nav-icon").value = "cerrado";
 
+let nav_mobile1 = document.querySelector(".responsive1");
+
+let nav_mobile2 = document.querySelector(".responsive2");
+
+let fondo = document.querySelector(".fondo");
+
+const btnMenu = document.getElementById("mobile-navbar");
 
 const btnEn = document.getElementById("botonen");
 
-btnEn.addEventListener("click", () => encrypt(document.getElementById("textoen").value));
-
 const btnDe = document.getElementById("botondes");
+
+const btnUp = document.getElementById("btn-up");
+
+btnEn.addEventListener("click", () => encrypt(document.getElementById("textoen").value));
 
 btnDe.addEventListener("click", () => decrypt(document.getElementById("textodes").value));
 
@@ -96,10 +105,7 @@ function decrypt(mensajeEncryptado){
     document.querySelector("#decrypted").textContent = mensaje;
 }
 
-const btnMenu = document.getElementById("mobile-navbar");
-
 btnMenu.addEventListener("click", () => menu())
-let fondo = document.querySelector(".fondo");
 
 function menu(){
     let icon = document.getElementById("nav-icon");
@@ -108,38 +114,29 @@ function menu(){
     if(icon.value === "cerrado"){
         icon.value = "abierto";
         icon.src = "./icons/manu-abierto.png";
-        menus.style.display = "flex";
-        icon.style.backgroundColor = "#000000";
+        menus.classList.add("menu-open");
         fondo.style.display = "block";
     }
     else if(icon.value === "abierto"){
         icon.value = "cerrado";
         icon.src = "./icons/manu-cerrado.png";
-        menus.style.display = "none";
-        icon.style.backgroundColor = "rgb(224, 224, 224)";
+        menus.classList.remove("menu-open");
         fondo.style.display = "none";
+        
     }
 }
-
-let nav_mobile1 = document.querySelector(".responsive1");
-
-let nav_mobile2 = document.querySelector(".responsive2");
-
-
 
 nav_mobile1.addEventListener("click", () => {
     document.getElementById("nav-icon").value = "cerrado";
     document.getElementById("nav-icon").src = "./icons/manu-cerrado.png";
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("nav-icon").style.backgroundColor = "rgb(224, 224, 224)";
+    document.getElementById("menu").classList.remove("menu-open");
     fondo.style.display = "none";
 });
 
 nav_mobile2.addEventListener("click", () => {
     document.getElementById("nav-icon").value = "cerrado";
     document.getElementById("nav-icon").src = "./icons/manu-cerrado.png";
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("nav-icon").style.backgroundColor = "rgb(224, 224, 224)";
+    document.getElementById("menu").classList.remove("menu-open");
     fondo.style.display = "none";
 });
 
@@ -147,8 +144,43 @@ addEventListener("resize", (event) => {
     if(window.innerWidth > 600){
         document.getElementById("nav-icon").value = "cerrado";
         document.getElementById("nav-icon").src = "./icons/manu-cerrado.png";
+        document.getElementById("menu").classList.remove("menu-open");
         document.getElementById("menu").style.display = "none";
-        document.getElementById("nav-icon").style.backgroundColor = "rgb(224, 224, 224)";
+        fondo.style.display = "none";
+    }else if(window.innerWidth < 600){
+        document.getElementById("nav-icon").value = "cerrado";
+        document.getElementById("nav-icon").src = "./icons/manu-cerrado.png";
+        document.getElementById("menu").classList.remove("menu-open");
+        document.getElementById("menu").style.display = "flex";
         fondo.style.display = "none";
     }
 });
+
+btnUp.addEventListener("click", () => {
+    window.scrollTo(0,0);
+});
+
+window.onscroll = () => {
+    if(window.scrollY > 50){
+        btnUp.classList.add("btn-up-on");
+    }else if(window.scrollY <= 50){
+        btnUp.classList.remove("btn-up-on");
+    }
+}
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left + window.scrollX,
+      top: rect.top + window.scrollY
+    };
+  }
+
+function scrolltoId(id){
+    const elemento = document.getElementById(id);
+    const x = getOffset(elemento).left;
+    const y = getOffset(elemento).top
+    window.scrollTo({
+        top: y,
+        left: x
+    });
+}

@@ -15,8 +15,8 @@
             <h2>Comienza a cifrar texto ahora</h2>
         </div>
         <nav id="navbar">
-            <a rel="noopener" href="#Cipher" class="nav-link">Cifrado</a>
-            <a rel="noopener" href="#Decipher" class="nav-link">Decifrado</a>
+            <a rel="noopener" href="javascript: scrolltoId('Cipher');" class="nav-link">Cifrado</a>
+            <a rel="noopener" href="javascript: scrolltoId('Decipher');" class="nav-link">Decifrado</a>
         </nav>
         <nav id="mobile-navbar">
             <a rel="noopener" class="nav-menu">
@@ -24,12 +24,12 @@
             </a>
         </nav>
         <div class="fondo"></div>
-        <nav id="menu">
+        <nav id="menu" class="menu">
             <div class="expand"></div>
             <hr class="divider-nav top-hr">
-            <a rel="noopener" href="#Cipher" class="nav-link responsive1 resp-link">Cifrado</a>
+            <a rel="noopener" href="javascript: scrolltoId('Cipher');" class="nav-link responsive1 resp-link">Cifrado</a>
             <hr class="divider-nav">
-            <a rel="noopener" href="#Decipher" class="nav-link responsive2 resp-link">Decifrado</a>
+            <a rel="noopener" href="javascript: scrolltoId('Decipher');" class="nav-link responsive2 resp-link">Decifrado</a>
             <hr class="divider-nav">
         </nav>
     </header>
@@ -52,6 +52,7 @@
             </form>
             <hr>
             <span id="menDe" class="mensaje"></span>
+            <div id="decipher"></div>
             <form id="Decipher">
                 <label for="decipher" class="selection">Seleccione una forma de decifrado</label>
                 <select class="select" id="decipher" name="decipher">
@@ -64,6 +65,10 @@
                 <button id="botondes" type="button">desencriptar</button>
                 <textarea class="output-text" id="decrypted" rows="6" cols="30" placeholder="El mensaje desencriptado se mostrara aqui"></textarea>
             </form>
+        </div>
+        <div class="btn-up" id="btn-up">
+            <img src="./icons/btnUp.png" id="btn-up-icon" class="btn-up-icon" alt="">
+            <!--<input type="button" class="btn-text-up" value="">-->
         </div>
     </main>
     <footer>
