@@ -16,7 +16,9 @@ const btnUp = document.getElementById("btn-up");
 
 btnEn.addEventListener("click", () => encrypt(document.getElementById("textoen").value));
 
-btnDe.addEventListener("click", () => decrypt(document.getElementById("textodes").value));
+btnDe.addEventListener("click", () => {
+    decrypt(document.getElementById("textodes").value)
+});
 
 function encrypt(mensaje){
     let mensajeEncryptado = "";
